@@ -1,0 +1,28 @@
+DB_PORT: 8082
+DB_URL: jdbc:h2:~/test #jdbc:postgresql://localhost:${DB_PORT}/postgres
+DB_USERNAME: dlozhkina
+DB_PASSWORD: orderliness #lg_pg_$$Pass
+
+logging.level: WARN
+logging.level.org.springframework: WARN
+
+
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+    platform: h2 #postgres
+
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+#        default_schema: lg_pg
